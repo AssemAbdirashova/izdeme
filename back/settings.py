@@ -33,7 +33,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ALLOWED_HOSTS = ['backofizdeme.herokuapp.com', '127.0.0.1', 'localhost']
 
 
-
+import warnings
+warnings.filterwarnings("ignore", message="No directory at", module="whitenoise.base")
 # Application definition
 
 INSTALLED_APPS = [
