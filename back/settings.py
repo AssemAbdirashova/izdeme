@@ -29,7 +29,7 @@ SECRET_KEY = '+k&=i-o4q&!l1*)&h-n^b2_6i*nyg1biub52qnu=a%pdg-ec=e'
 DEBUG = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-ALLOWED_HOSTS = ['izdeme.herokuapp.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['izdeme.herokuapp.com','project-deme.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 import warnings
