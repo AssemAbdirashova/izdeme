@@ -111,7 +111,7 @@ class ServiceDetailAPIView(APIView):
 
 
 class ServiceListAPIView(APIView):
-    permission_classes = (IsAuthenticated, )
+    #permission_classes = (IsAuthenticated, )
     def get(self, request):
         companies = Service.objects.all()
         serializer = ServiceSerializer(companies, many=True)
