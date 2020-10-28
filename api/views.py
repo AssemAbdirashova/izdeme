@@ -9,7 +9,7 @@ from api.models import Service, Statistics_week
 from api.serializers import StatisticsSerializer, ServiceSerializer
 from django.contrib.auth.models import User
 from rest_framework.permissions import IsAuthenticated
-from course.models import Course
+from api.models import Course
 from api.serilaizer import CourseSerializer
 
 
