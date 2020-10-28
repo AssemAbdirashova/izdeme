@@ -4,6 +4,18 @@ from django.contrib.auth import authenticate
 from rest_framework import exceptions
 from django.contrib.auth.models import User
 
+from course.models import Course
+
+
+class CourseSerializer(serializers.ModelSerializer):
+    # category = CategorySerializer2(read_only=True)
+    # category_id = serializers.IntegerField(write_only=True)
+
+    class Meta:
+        model = Course
+        fields = '__all__'
+
+
 class StatisticsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Statistics_week
