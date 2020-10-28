@@ -10,7 +10,7 @@ from api.serializers import StatisticsSerializer, ServiceSerializer
 from django.contrib.auth.models import User
 from rest_framework.permissions import IsAuthenticated
 from api.models import Course
-from api.serilaizers import CourseSerializer
+from api.serializers import CourseSerializer
 
 
 class CourseDetailAPIView(APIView):
