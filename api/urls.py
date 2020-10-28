@@ -11,6 +11,8 @@ urlpatterns = [
      path('statistics/', StatisticsListAPIView.as_view()),
      path('statistics/<int:statistics_week_id>', StatisticsDetailAPIView.as_view()),
      path('statistics/csv/', open_csv),
+     path('course/', CourseListAPIView.as_view()),
+     path('course/<int:course_id>/', CourseDetailAPIView.as_view()),
      # path('products/<int:product_id>/', product_detail),
      # path('users/', UserAPIView.as_view()),
      # path('orders/', OrdersListAPIView.as_view()),
