@@ -9,6 +9,50 @@ from api.models import Service, Statistics_week
 from api.serializers import StatisticsSerializer, ServiceSerializer
 from django.contrib.auth.models import User
 from rest_framework.permissions import IsAuthenticated
+from course.models import Course
+from course.serilaizer import CourseSerializer
+
+
+class CourseDetailAPIView(APIView):
+    def get_object(self, course_id):
+        try:
+            return Course.objects.get(id = course_id)   
+        except Course.DoesNotExist as e:
+            return Response({'error': str(e)})
+
+    def get(self, request, course_id):
+        company = self.get_object(course_id)
+        serializer = CourseSerializer(company)
+        return Response(serializer.data)
+
+    def put(self, request, course_id):
+        category = self.get_object(course_id)
+        serializer = CourseSerializer(instance=category, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response({'error': serializer.errors})
+
+    def delete(self, request, course_id):
+        category = self.get_object(course_id)
+        category.delete()
+
+        return Response({'deleted': True})
+
+
+class CourseListAPIView(APIView):
+    def get(self, request):
+        companies = Course.objects.all()
+        serializer = CourseSerializer(companies, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, ):
+        serializer = CourseSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, 201)
+        return Response({'error': serializer.errors},
+                        status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 def open_csv(request):
