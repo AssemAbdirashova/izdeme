@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate
 from rest_framework import exceptions
 from django.contrib.auth.models import User
 
-from course.models import Course
+from api.models import Course
 
 
 class CourseSerializer(serializers.ModelSerializer):
